@@ -54,5 +54,17 @@
 ### 연구범위
 
 * Vendor별 서비스 현황조사
+  - 서비스 대상
+    * AWS
+      - SageMaker
+    * Azure
+      - Machine Learning
+    * GCP
+      - AI Platform
+    * Databricks
+      - Databricks
+    * SK
+      - AccuInsight+
+
 * 서비스 비교(유사점 & 차별점)
 * Vendor별 서비스 구성 예시
