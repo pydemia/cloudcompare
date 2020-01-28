@@ -6,14 +6,86 @@
 
 ## Azure AI Ecosystem
 
+### 기본구성
+
+#### [Azure AI 서비스 구조]
 ![Azure AI Eco](../../images/azure-ml/azure-ai-eco.png "azure-ai-eco")
 
+#### [Azure Model 관리주기]
+<img src="../../images/azure-ml/azure-ml-model-workflow.png" alt="azure-ml-model-workflow"
+	title="mlops-intersection" width="70%" height="70%" />
 
-![Azure ML Model Workflow](../../images/azure-ml/azure-ml-model-workflow.png "azure-ml-model-workflow")
+#### [Azure ML 실험 Workflow]
+<img src="../../images/azure-ml/azure-ml-workspace-run_an_experiment_as_a_pipeline.png" alt="azure-ml-model-workflow"
+	title="mlops-intersection" width="70%" height="70%" />
 
-![Azure ML Workspace](../../images/azure-ml/azure-ml-workspace-run_an_experiment_as_a_pipeline.png "azure-ml-workspace")
-
+#### [Azure ML Architecture]
 ![Azure AI Eco](../../images/azure-ml/azure-mlops-architecture.png "azure-ml-architecture")
+
+
+### 지원 작업
+* 환경 설정
+  - 개발환경/SW 설정
+  - 입출력 Directory 설정
+  - Debugging, Interactive
+  - Git
+
+* 데이터 작업
+  - Azure Storage 연결
+  - Datastore에서 가져오기
+  - Dataset으로 학습
+    - Drift 탐지
+    - Versioning
+  - Designer에서 가져오기
+  - Labeling
+    - Label 지정된 데이터 가져오기
+    - Label 지정(Image)
+    - Label로 Dataset 만들기
+
+* 모델 학습
+  - Designer
+  - ML용 Estimator
+  - Scikit-learn
+  - Tensorflow
+  - Keras
+  - PyTorch
+  - Chainer
+
+* Automated ML
+  - Automated ML 서비스 사용(Python & Interface)
+  - Remote Compute Target 사용
+  - ML Task 정의
+
+* 모델 해석
+  - Local/Remote 모델
+  - Automated ML 모델
+
+* ML Pipelining
+  - 리소스 할당량 관리
+  - 데이터 Export/Delete
+  - Event-based Workflow
+
+* 실험 이력 추적/모니터링
+  - 학습 Metric Logging
+  - MLflow
+  -Tensorboard
+
+* 모델 배포/제공
+  - Azure Kubernetes Service
+  - Azure Container Instances
+  - IoT Edge
+  - Inference 가속: FPGA, GPU
+  - Azure App Service
+  - Compute Instances
+  - Docker Images, User-defined
+  - 기존 모델
+  - Debugging
+
+* 모델 모니터링
+  - 모델데이터 수집/평가
+  - Data Drift 검색
+  - Appl. Insights 사용
+
 
 ### Architecture Flow
 #### Train Model
@@ -34,21 +106,23 @@ Once you have registered your ML model, you can use Azure ML + Azure DevOps to d
 
 Azure DevOps release pipeline packages the new model along with the scoring file and its python dependencies into a docker image and pushes it to Azure Container Registry. This image is used to deploy the model as web service across QA and Prod environments. The QA environment is running on top of Azure Container Instances (ACI) and the Prod environment is built with Azure Kubernetes Service (AKS).
 
+---
+
 * __Azure Maching Learning__: ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경
 
 1. Build
 1. Deploy
 
 * Tools
-  - AzureML Designer(Preview, GUI): Drag & Drop
-  - Jupyter Notebook (& Python AzureML SDK)
-  - R AzureML SDK
+  - **AzureML Designer(Preview, GUI)**: Drag & Drop, *(Enterprise Edition에서만 사용 가능)*
+  - **Jupyter Notebook (& Python AzureML SDK)**
+  - **R AzureML SDK**
   - *__Automated ML__*
-  - VSCode Extension
-  - AzureML CLI
-  - [MLFlow(Metric Tracking & Model Deploying)](https://docs.microsoft.com/ko-kr/azure/machine-learning/how-to-use-mlflow): 
+  - **VSCode Extension**
+  - **AzureML CLI**
+  - [MLflow(Metric Tracking & Model Deploying)](https://docs.microsoft.com/ko-kr/azure/machine-learning/how-to-use-mlflow): 
     - machine learning 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리.
-    - MLFlow 추적: 실험 환경에 상관 없이 (원격 계산 대상, 컴퓨터에서 로컬로 또는 Azure Databricks 클러스터에서) 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소
+    - MLflow 추적: 실험 환경에 상관 없이 (원격 계산 대상, 컴퓨터에서 로컬로 또는 Azure Databricks 클러스터에서) 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소
   - [End-to-End Workflow Pipeline](https://www.kubeflow.org/docs/azure/)
     - Deployment
       * Instructions for deploying Kubeflow on Azure
@@ -63,11 +137,17 @@ Azure DevOps release pipeline packages the new model along with the scoring file
       * Help diagnose and fix issues you may encounter in your Kubeflow deployment
 <br/>
 
-### 비교: Azure Machine Learning과 Machine Learning Studio(클래식)
+---
+### Azure ML Studio(Designer)
 
-| | Azure Machine Learning 디자이너 | Studio(클래식) |
+![](../../images/azure-ml/azure-mls-slide1-step1.png "azure-ml-studio-sample")
+
+
+#### 비교: Azure Machine Learning과 Machine Learning Studio(클래식)
+
+| | 디자이너 | Studio(클래식) |
 | :--: | :----| :--- |
-| | 디자이너는 미리 보기 상태이며 Azure Machine Learning은 GA입니다. | GA(일반 공급) |
+| | 디자이너=Preview, Azure Machine Learning=GA | GA(일반 공급) |
 | Drag & Drop 인터페이스 | yes | yes |
 | 실험 | 컴퓨팅 대상으로 크기 조정 | 크기 조정(10GB 학습 데이터 제한) |
 인터페이스용 모듈 | [인기 있는 많은 모듈](https://docs.microsoft.com/ko-kr/azure/machine-learning/algorithm-module-reference/module-reference) | 다수 |
@@ -79,7 +159,7 @@ Azure DevOps release pipeline packages the new model along with the scoring file
 | 자동화된 모델 교육 | 아직 ~~디자이너에서는 미지원~~<br/>인터페이스 및 SDK에서 지원 | 예 |
 
 #### 다른 서비스와 통합
-Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동하며, Git 및 MLFlow 같은 오픈 소스 도구와 통합됩니다.
+Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동하며, Git 및 MLflow 같은 오픈 소스 도구와 통합됩니다.
 * **Azure Kubernetes Service, Azure Container Instances, Azure Databricks, * Azure Data Lake Analytics, Azure HDInsight** 등의 컴퓨팅 대상: [컴퓨팅 대상이란?](https://docs.microsoft.com/ko-kr/azure/machine-learning/concept-compute-target)
 * **Azure Event Grid**: [Azure Machine Learning 이벤트 사용](https://docs.microsoft.com/ko-kr/azure/machine-learning/concept-event-grid-integration)
 * **Azure Monitor**: [Azure Machine Learning 모니터링](https://docs.microsoft.com/ko-kr/azure/machine-learning/monitor-azure-machine-learning)
@@ -87,21 +167,28 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 * **Azure Virtual Network**: [가상 네트워크에서 실험 및 유추 보호](https://docs.microsoft.com/ko-kr/azure/machine-learning/how-to-enable-virtual-network)
 * **Azure Pipelines**: [기계 학습 모델의 학습 및 배포](https://docs.microsoft.com/ko-kr/azure/devops/pipelines/targets/azure-machine-learning)
 * **Git** Repository Log: [Git 통합](https://docs.microsoft.com/ko-kr/azure/machine-learning/concept-train-model-git-integration)
-* **MLFlow**: [MLflow를 사용하여 메트릭을 추적하고 모델 배포](https://docs.microsoft.com/ko-kr/azure/machine-learning/how-to-use-mlflow)
-* **Kubeflow**: [엔드투엔드 워크플로 파이프라인 빌드](https://www.kubeflow.org/docs/azure/)
+* **MLflow**: [MLflow를 사용하여 메트릭을 추적하고 모델 배포](https://docs.microsoft.com/ko-kr/azure/machine-learning/how-to-use-mlflow)
+* **Kubeflow**: [End-to-End Worflow Pipeline 빌드](https://www.kubeflow.org/docs/azure/)
 
 
 ### ML Pipeline
 
-#### 수행작업
+#### [서비스 예시]
+![Azure ML Designer](../../images/azure-ml/designer-drag-and-drop.gif "designer-drag-and-drop")
+
+![Azure ML Designer](../../images/azure-ml/pipelinerun-05.png "designer-drag-and-drop")
+
+
+
+#### [다른 Pipeline 서비스와 비교]
 
 | 파이프라인 | 수행작업 | 정식 파이프
 | :------ | :-------- | :------|
-| **Azure Machine Learning**	| ML Scenario Template으로 재사용 가능한 ML Workflow 정의 | 데이터 -> 모델 |
+| **Azure ML Pipelines**	| ML Scenario Template으로 재사용 가능한 ML Workflow 정의 | 데이터 -> 모델 |
 | **Azure Data Factory** | 데이터 이동, 변환, 제어 작업을 그룹화 | 데이터 -> 데이터 |
 | **Azure Pipelines**	| 모든 플랫폼/클라우드에 Appl.의 지속적 통합 및 전달	| 코드 -> 앱/서비스 |
 
-#### 주요장점
+#### [주요장점]
 
 | 장점 | Description |
 |:--- | :------|
@@ -112,7 +199,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 | **성과** | 작업항목 모듈화로 소프트웨어 품질 향상 |
 | **협업** | ML Design 시 공동 작업 수행 편의성 증대 |
 
-### 주요 Concepts
+#### [주요 Concepts]
 
 | 구분 | 설명 |
 | :-- | :-- |
@@ -120,23 +207,56 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 | **Environments(환경)** | ML Scripts를 위한 환경변수, 패키지, S/W 설정 지정 |
 | **Data(데이터)** | ML Data 관리 통합 솔루션(Azure Storage -> ML Dataset)  |
 | **Model Training** | SDK,CLI,GUI로 학습 작업 컨트롤 | 
-| **ML Pipelines** |
+| **ML Pipelines** | ML 작업을 위한 독립적 실행모듈로 구성된 Workflow |
 | **Model Management(MLOps)** | Pipelining, 등록, 패키징, 배포, 모니터링, 업데이트 관리 |
 | **해석** | `Python Explainers`를 활용하여 SHAP 방식 해석력 제공 |
 | **Automated ML** | End-to-End 자동화 ML 서비스 |
 | **Compute Instance** | `Jupyter(Python, R)`, `RStudio` 기반 노트북 환경 제공 |
 | **Compute Target** | Script 실행, 서비스 Hosting 리소스/환경: 분산처리, IoT 지원 |
-| **ONNX(Open Neural Network Exchange)** | Inference Optimization |  |
+| **ONNX(Open Neural Network Exchange)** | Inference Optimization |
 
+---
 ### Workspace(작업 영역)
 
 * Azure ML의 최상위 Resource
 * Azure ML에서 쓰이는 모든 Artifact 사용 가능한 중앙 집중식 환경
-* 학습 실행 기록 유지-Logs, Metrics, Outputs, Snapshots of Scripts-최고 성능 모델 선택 가능
+* 학습 실행 기록 유지(Logs, Metrics, Outputs, Snapshots of Scripts)최고 성능 모델 선택 가능
 
-[Workspace 분류 체계]
+
+#### [Workspace 분류 체계]
 ![Azure ML Model Workspace](../../images/azure-ml/azure-machine-learning-taxonomy.png "azure-ml-model-workspace")
 
-* 필요 시 외부 Azure Compute Instance 포함 가능
-* User Roles: Workspace 공유
-* Compute Target: Experiments 실행
+*필요 시 외부 **Azure Compute Instance** 포함 가능
+* **User Roles**: Workspace 공유
+* **Compute Target**: Experiments 실행
+* **Associated Azure Resources**: Workspace 생성 시 연결된 Resource 함께 생성
+* **Experiment**: 모델 작성에 사용하는 학습 실행
+* **Pipelines**: 모델 학습/재학습에 사용하는 Workflow
+* **Datasets**: 모델 학습, Pipelining에 사용하는 데이터 관리
+* **Registered Models**: 모델 배포를 위해 등록한 모델
+* **Deployment Endpoints**: Registered Models/Scoring Scripts 사용하여 생성
+
+#### Workspace용 도구
+* **Web**
+  - **Azure ML Studio**
+  - **Azure ML Designer(Enterprise Edition Only)**
+* SDK
+  - **Python SDK**
+  - **R SDK**
+* CLI
+  - **Azure ML CLI**
+
+#### [지원 기능]
+![Azure ML Model Workspace](../../images/azure-ml/azure-workspace-support.png "azure-workspace-support")
+
+
+> ***NOTE:**
+> 
+> 컴퓨팅 인스턴스는 **<span style="color: red">미국 중북부</span>** 또는  **<span style="color: red">영국 남부 지역</span>** 이 있는 작업 영역에서만 사용할 수 있습니다.
+> 작업 영역이 다른 지역에 있으면 **Notebook VM**을 계속 만들어 사용할 수 있습니다.
+
+#### 연결 서비스
+* **Azure Container Registry**: 학습/배포에 사용할 Docker Container 등록, 배포 이미지 만들 때 까지 지연 로드
+* **Azure Storage Account**: 기본 데이터 저장소로 사용. Jupyter Notebook도 여기에 저장
+* **Azure Appl. Insight**: 모델 모니터링 정보 저장
+* **Azure Key Vault**: Compute Target 암호, 기타 중요 정보 저장
