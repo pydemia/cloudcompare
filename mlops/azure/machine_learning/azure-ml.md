@@ -11,6 +11,9 @@
 #### [Azure AI 서비스 구조]
 ![Azure AI Eco](../../images/azure-ml/azure-ai-eco.png "azure-ai-eco")
 
+#### [Azure ML & 기타 서비스 활용 예시]
+![Azure ML Cycle](../../images/azure-ml/azure-ml-automated-predictions.png "azure-ml-automated-predictions.png")
+
 #### [Azure Model 관리주기]
 <img src="../../images/azure-ml/azure-ml-model-workflow.png" alt="azure-ml-model-workflow"
 	title="mlops-intersection" width="70%" height="70%" />
