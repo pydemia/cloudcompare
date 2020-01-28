@@ -14,7 +14,7 @@ Cloud Service Comparison
     * AWS
       - SageMaker
     * Azure
-      - Machine Learning
+      - [Machine Learning](mlops/azure/machine_learning/azure-ml.md#azure-machine-learning)
     * GCP
       - AI Platform
     * Databricks
