@@ -33,8 +33,9 @@ ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있�
 | **Data(데이터)** | ML Data 관리 통합 솔루션(Azure Storage -> ML Dataset)  |
 | **Model Training** | SDK,CLI,GUI로 학습 작업 컨트롤 | 
 | **ML Pipelines** | ML 작업을 위한 독립적 실행모듈로 구성된 Workflow |
+| **ML Endpoint** | Azure ML Web 서비스 포털에서 배포하는 . API 형태|
 | **Model Management(MLOps)** | Pipelining, 등록, 패키징, 배포, 모니터링, 업데이트 관리 |
-| **해석** | `Python Explainers`를 활용하여 SHAP 방식 해석력 제공 |
+| **Interpretability(해석력)** | `Python Explainers`를 활용하여 SHAP 방식 해석력 제공 |
 | **Automated ML** | End-to-End 자동화 ML 서비스 |
 | **Compute Instance** | `Jupyter(Python, R)`, `RStudio` 기반 노트북 환경 제공 |
 | **Compute Target** | Script 실행, 서비스 Hosting 리소스/환경: 분산처리, IoT 지원 |
@@ -45,7 +46,7 @@ ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있�
 #### Tools
 * Web
   - **Azure ML Studio**
-  - **Azure ML Designer(Enterprise Edition Only)**: Drag & Drop, *(Enterprise Edition에서만 사용 가능)*
+  - **Azure ML Designer(Enterprise Edition Only)**: <span style="color: red, ">Drag & Drop<>, *(Enterprise Edition에서만 사용 가능)*
 * SDK
   - **Python SDK**
   - **R SDK**
@@ -138,8 +139,8 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 ### Azure ML Studio(Designer)
 
 ![Azure ML Studio GUI sample](../../images/azure-ml/azure-mls-slide1-step1.png "azure-ml-studio-sample")
-
 <br/>
+
 #### 비교: Azure Machine Learning(Designer 포함)과 Machine Learning Studio(클래식)
 
 | | 디자이너 | Studio(클래식) |
@@ -204,6 +205,19 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 * **Azure Storage Account**: 기본 데이터 저장소로 사용. Jupyter Notebook도 여기에 저장
 * **Azure Appl. Insight**: 모델 모니터링 정보 저장
 * **Azure Key Vault**: Compute Target 암호, 기타 중요 정보 저장
+<br/>
+
+---
+### Azure ML Environments
+Script 개발, 학습, 배포에 활용하는 Versionining된 설정
+
+<img src="../../images/azure-ml/azure-ml-environment-crop.png" alt="azure-ml-environment"
+	title="azure-ml-environment" width="70%" height="70%" />
+
+환경범주
+* Curated Env.: Azure ML 기본제공. ML Framework 활용을 위한 기본 Python Packages & Setting 포함.
+* User-managed Env.: 환경설정, 학습 Script에서 직접 관리-`pip dependency`: `azureml-defaults >= 1.0.45`(Web service Hosting에 필요)
+* System-managed Env.: `conda` 기반 Python 환경 및 Script 종속성 관리
 
 ---
 ### ML Pipeline
