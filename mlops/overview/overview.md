@@ -58,7 +58,7 @@
     * AWS
       - SageMaker
     * Azure
-      - Machine Learning
+      - [Machine Learning](../azure/machine_learning/azure-ml.md#azure-machine-learning)
     * GCP
       - AI Platform
     * Databricks

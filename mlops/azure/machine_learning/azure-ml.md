@@ -33,7 +33,7 @@ ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있�
 | **Data(데이터)** | ML Data 관리 통합 솔루션(Azure Storage -> ML Dataset)  |
 | **Model Training** | SDK,CLI,GUI로 학습 작업 컨트롤 | 
 | **ML Pipelines** | ML 작업을 위한 독립적 실행모듈로 구성된 Workflow |
-| **ML Endpoint** | Azure ML Web 서비스 포털에서 배포하는 . API 형태|
+| **ML Endpoint** | Azure ML Web 서비스 포털에서 배포하는 모델 Inference API |
 | **Model Management(MLOps)** | Pipelining, 등록, 패키징, 배포, 모니터링, 업데이트 관리 |
 | **Interpretability(해석력)** | `Python Explainers`를 활용하여 SHAP 방식 해석력 제공 |
 | **Automated ML** | End-to-End 자동화 ML 서비스 |
@@ -251,11 +251,11 @@ Script 개발, 학습, 배포에 활용하는 Versionining된 설정
 
 ---
 
-#### [Azure Model 관리주기]
+#### [Azure ML Model Workflow]
 <img src="../../images/azure-ml/azure-ml-model-workflow.png" alt="azure-ml-model-workflow"
 	title="mlops-intersection" width="70%" height="70%" />
 
-#### [Azure ML 실험 Workflow]
+#### [Azure ML Experiment Workflow]
 <img src="../../images/azure-ml/azure-ml-workspace-run_an_experiment_as_a_pipeline.png" alt="azure-ml-model-workflow"
 	title="mlops-intersection" width="70%" height="70%" />
 
