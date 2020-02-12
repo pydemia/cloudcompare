@@ -22,6 +22,15 @@ Cloud Service Comparison
       - Databricks
     * SK
       - AccuInsight+
+  - Vendor별 AI 서비스
+    * AWS
+      - AI Services
+    * Azure
+      - [Cognitive Services](mlops/azure/cognitive_services/cognitive_services.md#azure-cognitive-services)
+    * GCP
+      - AI Building Blocks
+    * SK
+      - AccuInsight+
 <br/>
 
 * 서비스 비교
@@ -62,3 +71,4 @@ Cloud Service Comparison
   - Service Type
     * Real-time
     * Batch
+
