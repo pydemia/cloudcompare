@@ -40,6 +40,7 @@ ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있�
 | **Compute Instance** | `Jupyter(Python, R)`, `RStudio` 기반 노트북 환경 제공 |
 | **Compute Target** | Script 실행, 서비스 Hosting 리소스/환경: 분산처리, IoT 지원 |
 | **ONNX(Open Neural Network Exchange)** | Inference Optimization |
+
 <br/>
 
 
@@ -143,7 +144,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 
 #### 비교: Azure Machine Learning(Designer 포함)과 Machine Learning Studio(클래식)
 
-| | 디자이너 | Studio(클래식) |
+| 디자이너 | Studio(클래식) |
 | :--- | :----| :--- |
 | **제공 수준** | 디자이너=Preview, Azure Machine Learning=GA | GA(일반 공급) |
 | **I/F: Drag & Drop** | yes | yes |
@@ -155,6 +156,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 | **ML Ops** | 구성 가능한 배포, 모델 및 파이프라인 버전 관리 | 기본 모델 관리 및 배포 |
 | **모델** | 학습 작업에 따라 다양한 표준 형식 | 독점적이며 이식 불가능 형식 |
 | **자동화된 모델 교육** | 아직 ~~디자이너에서는 미지원~~<br/>인터페이스 및 SDK에서 지원 | 예 |
+
 <br/>
 
 ---
